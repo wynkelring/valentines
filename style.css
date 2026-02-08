@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle, #000 30%, #120000);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 2s ease, color 2s ease;
+}
+
+body.love {
+    background-color: #ffb6c1; /* lovely różowe tło */
+    color: #4b0033;
+}
+
+#flash {
+    position: fixed;
+    inset: 0;
+    background: darkred;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+#app {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2, p {
+    animation: flicker 2.5s infinite;
+}
+
+.glitch {
+    animation: glitch 1.2s infinite;
+}
+
+body.love h1,
+body.love h2,
+body.love p {
+    animation: none;
+}
+
+button {
+    width: 90%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 18px;
+    margin: 12px auto;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.3s ease;
+}
+
+#detailsBtn {
+    background: darkred;
+    color: white;
+    display: none;
+}
+
+.yes {
+    background: crimson;
+    color: white;
+}
+
+.no {
+    background: #333;
+    color: white;
+    position: absolute;
+}
+
+.final-btn {
+    background: pink;
+    color: black;
+}
+
+#resignBtn {
+	background: #333;
+}
+
+a {
+    color: #c7005c;
+    font-weight: bold;
+}
+
+/* Serduszka */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+    animation: floatHeart 3s ease-in-out forwards;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red; }
+    20% { text-shadow: -2px 0 cyan; }
+    40% { text-shadow: 2px 2px red; }
+    60% { text-shadow: -2px -2px cyan; }
+    80% { text-shadow: 2px 0 red; }
+    100% { text-shadow: none; }
+}
+
+/* Floating hearts along an arc */
+@keyframes floatHeart {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    50% { transform: translate(0,-100px) scale(1.2); }
+    100% { opacity: 0; transform: translate(0,-200px) scale(1); }
+}
